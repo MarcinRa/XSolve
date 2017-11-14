@@ -1,0 +1,14 @@
+<div class="arrow">
+  <div ng-show="leftTurnAvailable" class="left-arrow" ng-click="moveLeft()"></div>
+</div>
+<div class="line">
+    <div ng-if="item.active" ng-class="{'box':true, 'no-border':item.empty, 'highlight':item.highLight}" ng-repeat="item in items">
+        <img ng-if="!item.empty" ng-src="{{item.url}}" alt="{{item.title}}" ready="item.ready" img-load-handler>
+        <div ng-if="!item.empty">
+          <p>{{::item.title}}</p>
+        </div>
+    </div>
+</div>
+<div class="arrow">
+  <div ng-show="rightTurnAvailable" class="right-arrow" ng-click="moveRight()"></div>
+</div>

@@ -1,0 +1,19 @@
+<line-wrapper class="main-page">
+  <div class="header-wrapper">
+    <div class="arrow"></div>
+    <div class="line">
+      <div>
+        <input type="text" placeholder="Type in here to filter" ng-model="textFilter">
+        <p>{{foundElements == 0 ? "No": foundElements}} matching item found</p>
+      </div>
+    </div>
+    <div class="arrow"></div>
+  </div>
+  <div id="line-table">
+    <!-- box_lines elements-->
+  </div>
+  <div class="line-wrapper-more">
+    <button ng-show="moreButtonAvailable" ng-click="addNextLine()">More ></button>
+  </div>
+</line-wrapper>
+

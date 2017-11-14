@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>XSolve</title>
+    <meta name="description" content="XSolve task">
+    <meta name="viewport" content="width=device-width">
+    <!--<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">-->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="xtestApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="over-layer" ng-if="overflow" >
+      <p>Loading...</p>
+    </div>
+
+    <div>
+      <div ng-include="'views/main.html'"></div>
+    </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js(.tmp) scripts/scr.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/photoService.js"></script>
+    <script src="scripts/directives/boxLine.js"></script>
+    <script src="scripts/directives/lineWrapper.js"></script>
+    <script src="scripts/directives/imgLoadHandler.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
