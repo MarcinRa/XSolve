@@ -65,9 +65,9 @@ angular.module('xtestApp')
         const notReady = (item) => !item.ready;
 
         const runWatchers = () => {
-          let deletePreWatcher = $scope.$watch("items",(newVal,oldVal)=>{
+          let deletePreWatcher = $scope.$watch("items",(newVal)=>{
             $scope.imgTrack = newVal.filter(notReady);
-            let deleteImgTrackWatcher = $scope.$watch("imgTrack",(newVal,oldVal)=>{
+            let deleteImgTrackWatcher = $scope.$watch("imgTrack",(newVal)=>{
               if(newVal.filter(notReady).length==0){
                 $rootScope.overflow = false;
                 deleteImgTrackWatcher();
@@ -89,8 +89,7 @@ angular.module('xtestApp')
         };
 
         const oneImgRight = () => {
-          if($scope.items.length <= endIndex + 1){
-            if($scope.items[ endIndex + 1 ]!==undefined){
+            if($scope.items[ endIndex + 1 ]!==undefined || !($scope.items.length <= endIndex + 1)){
               //normal traversing though list
               $scope.items[startIndex].active = false;
               startIndex++;
@@ -98,6 +97,7 @@ angular.module('xtestApp')
               $scope.items[endIndex].active = true;
 
             } else if(isExternalImagesAvailable) {
+              // try to get image from API
               try{
                 $scope.pushImg({index: $scope.listId});
                 $scope.items[startIndex].active = false;
@@ -110,12 +110,6 @@ angular.module('xtestApp')
                 }
               }
             }
-          } else {
-            $scope.items[startIndex].active = false;
-            startIndex++;
-            endIndex++;
-            $scope.items[endIndex].active = true;
-          }
           if($scope.items[ endIndex + 1 ]===undefined && !isExternalImagesAvailable){
             $scope.rightTurnAvailable = false;
           }

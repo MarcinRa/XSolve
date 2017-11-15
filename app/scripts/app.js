@@ -9,6 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('xtestApp', []).run(["$rootScope",function($rootScope){
+  .module('xtestApp', [])
+  .run(["$rootScope",function($rootScope){
     $rootScope.overflow = true;
 }]);

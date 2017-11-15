@@ -9,10 +9,9 @@
  */
 angular.module('xtestApp')
   .service('PhotoService', function ($http) {
-    this.getMedia = () => $http({
-      url: "https://jsonplaceholder.typicode.com/photos",
-      method: "GET",
-      params: {albumId: 1}
-    }).then((data) => data.data)
-      .catch((e) => console.error("Api is not available", e));
+    this.getMedia = () => $http.get("https://jsonplaceholder.typicode.com/photos",{params: {albumId: 1}})
+      .then((data) => data.data,
+            (error)=>{
+              window.location.replace("/404.html");
+      });
     });

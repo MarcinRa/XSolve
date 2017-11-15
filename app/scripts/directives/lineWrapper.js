@@ -19,7 +19,7 @@ angular.module('xtestApp')
         $scope.textElement = "";
 
         $scope.$watch("textFilter",(newVal,oldVal)=>{
-          findElementsWithText(newVal)
+          findElementsWithText(newVal);
         });
 
         $scope.addNextLine = () => {
@@ -109,9 +109,9 @@ angular.module('xtestApp')
         };
 
         const runWatchers= () => {
-          let deleteItemsWatcher = $scope.$watch("items",(newVal,oldVal)=>{
+          let deleteItemsWatcher = $scope.$watch("items",(newVal)=>{
             $scope.trackImg = findElements(newVal);
-            let deleteWatcherWhenAllImgReady = $scope.$watch("trackImg",(newVal,oldVal)=>{
+            let deleteWatcherWhenAllImgReady = $scope.$watch("trackImg",(newVal)=>{
               if(newVal.filter(notLoadedImg).length == 0){
                 deleteWatcherWhenAllImgReady();
                 $rootScope.overflow = false;
